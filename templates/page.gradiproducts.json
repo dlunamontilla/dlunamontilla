@@ -3,7 +3,7 @@
     "wrapper": "div#div_id.div_class[attribute-one=value]",
     "sections": {
         "main": {
-            "type": "page.gradi-products"
+            "type": "page-gradi-products"
         }
     },
     "order": [
