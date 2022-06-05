@@ -1,0 +1,16 @@
+:root {
+    --max-width: 1200px;
+    --width: calc(100% - 20px);
+}
+
+.container {
+    margin: 20px auto;
+    width: var(--width);
+    max-width: var(--max-width);
+    padding: 20px;
+}
+
+.container--product {
+    background-color: #00295e;
+    color: white;
+}
