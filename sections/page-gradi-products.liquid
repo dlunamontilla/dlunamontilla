@@ -1,8 +1,28 @@
-{{ 'gradi-products.css' | asset_url | stylesheet_tag }}
+{{ 'style.css' | asset_url | stylesheet_tag }}
 
 <div class="container">
-    <h2>Se agregan los primeros elementos</h2>
+    <h2 class="container__title">Se agregan los primeros elementos</h2>
 </div>
 
 <hr>
 
+<div class="container">
+    {% for product in collections %}
+    <h2 class="container__title">
+        {{ product.title }} - Algo
+    </h2>
+    {% endfor %}
+</div>
+
+<hr>
+
+<div class="container">
+    <h2 class="container__title">{{ section.settings.heading }} - Algo</h2>
+    <a href="{{ section.settings.featured_collection.url }}" class="container__title">This week's best selling items</a>
+
+    {{ section.settings }}
+
+    {% for item in section %}
+    {{ item }} {{ section.id }}
+    {% endfor %}
+</div>
