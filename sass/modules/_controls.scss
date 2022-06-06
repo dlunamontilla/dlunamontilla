@@ -1,0 +1,20 @@
+.button {
+  --border-radius: 30px;
+
+  transition: 300ms ease;
+
+  font: {
+    family: inherit;
+    size: 1.5rem;
+  }
+  &:not([class*="--"]) {
+    &:hover {
+      background-color: lighten(black, 30);
+    }
+  }
+
+  &--primary {
+    background-color: $color-base;
+    border-radius: 5px;
+  }
+}

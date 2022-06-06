@@ -1,12 +1,15 @@
 {{ 'style.css' | asset_url | stylesheet_tag }}
 
+<!--  -->
+
 <div class="container">
     <h2>Nuestros productos</h2>
 
-    <section class="product-grid">
+    <section class="product-grid" method="post" action="/card/add">
         {% for collection in collections %}
         {% for product in collection.products %}
 
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
         <article class="product-grid__item">
             <header class="product-grid__item__header">
                 {{ product.url }}
@@ -18,13 +21,21 @@
             </section>
 
             <footer class="product-grid__item__footer">
-                <button>Agregar al carro de compra</button>
+                <form action="/card/add" method="post">
+                    <label for="quantify" class="product-grid__item__label">
+                        <input type="number" name="quantity" id="quantity" min="1" max="20" value="1" />
+                    </label>
+
+                    <button type="submit" class="button button--primary">Agregar al carrito</button>
+                </form>
             </footer>
         </article>
 
-        {{ product.name }}
         {% endfor %}
         {% endfor %}
     </section>
+
+    <hr>
+
 
 </div>
