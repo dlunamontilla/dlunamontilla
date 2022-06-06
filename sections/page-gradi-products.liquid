@@ -4,7 +4,7 @@
 <div class="container">
     <h2>Nuestros productos</h2>
 
-    <section class="product-grid">
+    <section class="product-grid" id="products">
         {% for collection in collections %}
         {% for product in collection.products %}
 
@@ -19,13 +19,18 @@
             </section>
 
             <footer class="product-grid__item__footer">
-                <form action="https://dev-applications.myshopify.com/cart/add" method="post">
+                <form action="/cart/add" method="post" class="form">
                     <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-                    <label for="quantify" class="product-grid__item__label">
-                        <input type="number" name="quantity" id="quantity" min="1" max="20" value="1" />
-                    </label>
 
-                    <button type="submit" class="button button--primary">Agregar al carrito</button>
+                    <div class="form__quantity">
+                        <label for="quantify" class="product-grid__item__label">
+                            <input type="number" name="quantity" id="quantity" min="1" max="20" value="1" />
+                        </label>
+                    </div>
+
+                    <div class="form__button-container">
+                        <button type="submit" class="button button--primary button--width">Agregar al carrito</button>
+                    </div>
                 </form>
             </footer>
         </article>

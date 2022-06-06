@@ -4,7 +4,7 @@
  * @returns { boolean }
  */
 const isForm = (any) => {
-    return Object.prototype.toString.call(any) = "[object HTMLFormElement]";
+  return Object.prototype.toString.call(any) === "[object HTMLFormElement]";
 };
 
 /**
@@ -45,24 +45,40 @@ async function saveFormDataToServer(form, nameRegister = "") {
  * @returns { Promise<any>}
  */
 const post = async (form) => {
-    const { method, action } = form;
-    if (!isForm(form)) return [];
+  const { method, action } = form;
+  const formData = new FormData(form);
 
-    const formData = new FormData(form);
+  console.log({ form });
 
-    const path = `$(window.Shopify.routes.root)/${action}`;
+  if (!isForm(form)) return [];
 
-    console.log({ path });
+  console.log({ action });
+  const response = await fetch(action, {
+    method,
+    body: formData,
+  });
 
-    const response = await fetch(action, {
-        method,
-        body: formData,
-        credentials: 'same-origin',
-        mode: 'same-origin'
-    });
+  if (!response.ok)
+    console.error("No se pudo procesar la petición correctamente");
 
-    if (!response.ok) console.error("No se pudo procesar la petición correctamente");
+  const stringData = await response.text();
+  return stringData;
+};
 
-    const data = await response.json();
-    return data;
-}
+/**
+ *
+ * @param { SubmitEvent} e Evento de envío de formulario
+ * @returns { void }
+ */
+const handler = async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  if (isForm(form)) {
+    const data = await post(form);
+    console.log({ data });
+  }
+};
+
+const products = document.querySelector("#products");
+if (products) products.onsubmit = handler;
