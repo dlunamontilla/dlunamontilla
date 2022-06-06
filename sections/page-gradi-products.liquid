@@ -2,7 +2,8 @@
 <script src="{{ 'send-form.js' | asset_url }}" defer="defer"></script>
 
 <div class="container">
-    <h2>Nuestros productos</h2>
+    <h1>Nuestros productos</h1>
+    //https://shopify.dev/themes/architecture/locales/storefront-locale-files
 
     <section class="product-grid" id="products">
         {% for collection in collections %}
@@ -14,7 +15,9 @@
             </header>
 
             <section class="product-grid__item__description">
-                <h2 class="product-grid__item__description">{{ product.title }}</h2>
+                <h2 class="product-grid__item__description">
+                    {{ product.title }}
+                </h2>
                 <p class="product-grid__item__paragraph">{{ product.description }}</p>
             </section>
 
