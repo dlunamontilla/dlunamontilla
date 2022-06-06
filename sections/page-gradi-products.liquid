@@ -1,28 +1,30 @@
 {{ 'style.css' | asset_url | stylesheet_tag }}
 
 <div class="container">
-    <h2 class="container__title">Se agregan los primeros elementos</h2>
-</div>
+    <h2>Nuestros productos</h2>
 
-<hr>
+    <section class="product-grid">
+        {% for collection in collections %}
+        {% for product in collection.products %}
 
-<div class="container">
-    {% for product in collections %}
-    <h2 class="container__title">
-        {{ product.title }} - Algo
-    </h2>
-    {% endfor %}
-</div>
+        <article class="product-grid__item">
+            <header class="product-grid__item__header">
+                {{ product.url }}
+            </header>
 
-<hr>
+            <section class="product-grid__item__description">
+                <h2 class="product-grid__item__description">{{ product.title }}</h2>
+                <p class="product-grid__item__paragraph">{{ product.description }}</p>
+            </section>
 
-<div class="container">
-    <h2 class="container__title">{{ section.settings.heading }} - Algo</h2>
-    <a href="{{ section.settings.featured_collection.url }}" class="container__title">This week's best selling items</a>
+            <footer class="product-grid__item__footer">
+                <button>Agregar al carro de compra</button>
+            </footer>
+        </article>
 
-    {{ section.settings }}
+        {{ product.name }}
+        {% endfor %}
+        {% endfor %}
+    </section>
 
-    {% for item in section %}
-    {{ item }} {{ section.id }}
-    {% endfor %}
 </div>
