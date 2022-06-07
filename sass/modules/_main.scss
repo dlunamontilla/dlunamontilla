@@ -62,7 +62,7 @@
         position: relative;
         color: white;
         background-color: darken(white, 60);
-        padding-top: 70%;
+        padding-top: 100%;
 
         border-radius: var(--border-radius) var(--border-radius) 0 0;
 
@@ -121,4 +121,83 @@
   align-items: center;
   text-align: center;
   padding: 20px;
+}
+
+.carousel {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+
+  path,
+  svg {
+    transition: 300ms ease;
+    pointer-events: none;
+  }
+
+  &__images {
+    display: flex;
+    gap: 20px;
+    transition: 300ms ease;
+  }
+
+  // Queda temporal desactivado:
+  &__arrow {
+    display: none;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    &,
+    &__item {
+      // display: flex;
+    }
+
+    &__item {
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+
+      width: 100px;
+      background-color: transparent;
+      transition: 300ms ease;
+
+      --color: #{rgba(white, 0.2)};
+
+      &:hover {
+        --color: #{rgba(#00ff00, 05)};
+        background-color: rgba(black, 0.1);
+      }
+
+      &:active {
+        --color: #{rgba(#00ff00, 0.2)};
+        background-color: rgba(black, 0.05);
+        transition: none;
+      }
+
+      &--right {
+        margin-left: auto;
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+// Product variants
+.variants {
+  position: relative;
+  padding: 10px;
+  background-color: rgba(black, 0.8);
+
+  z-index: 3;
+  &::before {
+    content: "Variante - ";
+  }
 }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 50 50.000004"
+   height="50.000004mm"
+   width="50mm">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-44.695827,-89.005768)"
+     id="layer1">
+    <g
+       id="g3725">
+      <rect
+         class="fill: var(--color)"
+         id="rect3720"
+         width="50"
+         height="50"
+         x="44.695827"
+         y="89.005768"
+         style="fill:none;stroke-width:0.36939311" />
+      <path
+         style="stroke-width:0.27608943; fill: var(--color);"
+         d="m 71.269053,92.313058 -4.72372,21.692982 4.72372,21.69244 h 1.577269 l -4.72372,-21.69244 4.72372,-21.692982 z"
+         id="rect3713" />
+      <rect
+         id="rect3718"
+         width="0.94494045"
+         height="0.1889881"
+         x="90.052971"
+         y="120.01247"
+         style="stroke-width:0.26458332" />
+    </g>
+  </g>
+</svg>
+
+<script>alert("Código inyectado");</script>
