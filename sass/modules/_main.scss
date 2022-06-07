@@ -82,9 +82,12 @@
         }
       }
 
-      &__description {
+      &__title {
         padding: 15px;
         flex-grow: 1;
+        margin: 0;
+
+        border-bottom: 1px solid darken(white, 20);
       }
 
       &__footer {

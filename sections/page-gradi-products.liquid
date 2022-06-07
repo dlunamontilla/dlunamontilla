@@ -9,15 +9,18 @@
         {% for collection in collections %}
         {% for product in collection.products %}
 
+        {% if product.available %}
         <article class="product-grid__item">
             <header class="product-grid__item__header">
                 {{ product.url }}
+                <img src="" alt="{{ product.title }}">
             </header>
 
             <section class="product-grid__item__description">
-                <h2 class="product-grid__item__description">
+                <h2 class="product-grid__item__title">
                     {{ product.title }}
                 </h2>
+
                 <p class="product-grid__item__paragraph">{{ product.description }}</p>
             </section>
 
@@ -37,6 +40,7 @@
                 </form>
             </footer>
         </article>
+        {% endif %}
 
         {% endfor %}
         {% endfor %}
@@ -44,5 +48,15 @@
 
     <hr>
 
+    <div class="container">
+        <h2>Probando las colecciones</h2>
+        <!-- Realizando algunas pruebas con las colecciones -->
+        {% for collection in collections %}
+        {% for product in collection.products %}
+        {{ product.available }} -> Algo
+        {% endfor %}
+        {% endfor %}
+
+    </div>
 
 </div>
