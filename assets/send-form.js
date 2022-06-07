@@ -1,6 +1,6 @@
 /**
  *
- * @param { any } any Permite evaluar si el argumento es un formulario.
+ * @param { any } any It allow evaluate if arguments is a form.
  * @returns { boolean }
  */
 const isForm = (any) => {
@@ -8,7 +8,7 @@ const isForm = (any) => {
 };
 
 /**
- * Permite enviar el formulario mediante una petición Ajax.
+ * It allow send the form through Ajax.
  *
  * @param { HTMLFormElement } form Formulario HTML
  * @returns { Promise<any>}
@@ -36,7 +36,7 @@ const post = async (form) => {
 
 /**
  *
- * @param { SubmitEvent } e Evento de envío de formulario
+ * @param { SubmitEvent } e Form send event
  * @returns { void }
  */
 const handler = async function (e) {
