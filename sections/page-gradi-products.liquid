@@ -1,7 +1,7 @@
 {{ "style.css" | asset_url | stylesheet_tag }}
 <script src="{{ 'send-form.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'carousel.js' | asset_url }}" defer="defer"></script>
 
-{% assign path = "//cdn.shopify.com/s/files/1/0642/7938/0208/" %}
 
 <div class="container">
     <h1>Nuestros productos</h1>
@@ -12,9 +12,18 @@
             {% for product in collection.products %}
                 {% if product.available %}
                     <article class="product-grid__item">
-                        <header class="product-grid__item__header">
-                            {{ product.url }}
-                            <img src="" alt="{{ product.title }}"/>
+                        <header class="product-grid__item__header" data-name="carousel">
+                            <!-- Imágenes del carousel -->
+                            <div class="images" data-name="images">
+                                <div class="images__item"></div>
+
+                                <div class="absolute" data-name="next">
+                                    Aquí va un carousel de imágenes o una imagen específica si el usuario seleccionó una variante.
+                                </div>
+                            </div>
+
+                            <!-- Indicadores de posición de imágenes -->
+                            <div class="product-grid__item__header__images__indicators" data-name="indicators"></div>
                         </header>
 
                         <section class="product-grid__item__description">
