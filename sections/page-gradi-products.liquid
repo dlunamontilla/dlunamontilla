@@ -53,7 +53,8 @@
         <!-- Realizando algunas pruebas con las colecciones -->
         {% for collection in collections %}
         {% for product in collection.products %}
-        {{ product.available }} -> Algo
+        <img src="{{ product.media }}" alt="{{ product.title }}" srcset="{{ product.media }}">
+        <p>Algo</p>
         {% endfor %}
         {% endfor %}
 
