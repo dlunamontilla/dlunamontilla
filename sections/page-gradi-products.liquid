@@ -53,8 +53,9 @@
         <!-- Realizando algunas pruebas con las colecciones -->
         {% for collection in collections %}
         {% for product in collection.products %}
-        <img src="{{ product.media }}" alt="{{ product.title }}" srcset="{{ product.media }}">
-        <p>Algo</p>
+        {% for image in product.media %}
+        <img src="{{ image }}" alt="{{ product.title }}" />
+        {% endfor %}
         {% endfor %}
         {% endfor %}
 
