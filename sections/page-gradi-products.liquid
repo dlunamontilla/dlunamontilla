@@ -1,7 +1,7 @@
 {{ "style.css" | asset_url | stylesheet_tag }}
 <script src="{{ 'send-form.js' | asset_url }}" defer="defer"></script>
 
-{% assign path = "https://cdn.shopify.com/s/files/1/0642/7938/0208/" %}
+{% assign path = "//cdn.shopify.com/s/files/1/0642/7938/0208/" %}
 
 <div class="container">
     <h1>Nuestros productos</h1>
@@ -56,9 +56,11 @@
         {% for collection in collections %}
             {% for product in collection.products %}
                 {% for image in product.images %}
-                    <pre>https://cdn.shopify.com/s/files/1/0642/7938/0208/{{ image }}</pre>
+                    <picture>
+                        <source srcset="{{ image | image_url: width: 300, height: 'auto' }}">
+                        <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}" loading="lazy" width="300" height="auto">
+                    </picture>
 
-                    <img src="{{ path }}{{ image }}" alt="{{ product.title }}" srcset="{{ image }}">
                 {% endfor %}
             {% endfor %}
         {% endfor %}
