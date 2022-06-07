@@ -67,7 +67,7 @@ const post = async (form) => {
 
 /**
  *
- * @param { SubmitEvent} e Evento de envío de formulario
+ * @param { SubmitEvent } e Evento de envío de formulario
  * @returns { void }
  */
 const handler = async function (e) {

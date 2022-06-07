@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jun  6 11:36:58 2022
+# Make data base, printed on Tue Jun  7 09:05:43 2022
 
 # Variables
 
@@ -51,7 +51,7 @@ _ = /usr/share/code/code
 # environment
 QT_AUTO_SCREEN_SCALE_FACTOR = 0
 # environment
-JOURNAL_STREAM = 8:38557
+JOURNAL_STREAM = 8:43366
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-mate:/etc/xdg
 # environment
@@ -67,15 +67,15 @@ GNUMAKEFLAGS :=
 # environment
 XDG_DATA_DIRS = /usr/share/mate:/usr/local/share:/usr/share:/var/lib/snapd/desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=2fb3bfb5621daa9a7446ec7e629e02fa
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=d4a73cf5938828ebc7b59b84629f5a52
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
 QT_SCALE_FACTOR = 1
 # environment
-MANAGERPID = 1230
+MANAGERPID = 1393
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a68c6e53-660d-4314-96c5-8ccc0b3e129e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-4f767263-db4f-4f67-99a6-bbc8947cdc11.sock
 # environment
 VSCODE_CWD = /home/gradiweb
 # environment
@@ -89,7 +89,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/gradiweb-IdeaPad:@/tmp/.ICE-unix/1242,unix/gradiweb-IdeaPad:/tmp/.ICE-unix/1242
+SESSION_MANAGER = local/gradiweb-IdeaPad:@/tmp/.ICE-unix/1405,unix/gradiweb-IdeaPad:/tmp/.ICE-unix/1405
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -101,7 +101,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = bc8d669b73ae4aadab769c0b1f811f05
+INVOCATION_ID = 305b87c2dc4748019689d24583531785
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -113,7 +113,7 @@ XDG_SESSION_DESKTOP = mate
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 112782
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2204
 # automatic
 %F = $(notdir $%)
 # environment
@@ -129,7 +129,7 @@ QT_QPA_PLATFORMTHEME = gtk2
 # environment
 XDG_SEAT = seat0
 # environment
-SSH_AGENT_PID = 1370
+SSH_AGENT_PID = 1533
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = MATE
 # environment
@@ -233,9 +233,9 @@ MATE_DESKTOP_SESSION_ID = this-is-deprecated
 # environment
 LANG = C
 # environment
-VSCODE_PID = 125251
+VSCODE_PID = 2204
 # environment
-DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=2fb3bfb5621daa9a7446ec7e629e02fa
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=d4a73cf5938828ebc7b59b84629f5a52
 # variable set hash-table stats:
 # Load=112/1024=11%, Rehash=0, Collisions=8/137=6%
 
@@ -265,7 +265,7 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-06 11:33:48.170586065
+#  Last modified 2022-06-06 12:10:53.343919083
 #  File has been updated.
 #  Successfully updated.
 
@@ -280,7 +280,7 @@ main:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 2):
-	scss -w assets:assets -t compressed
+	scss -w sass:assets -t compressed
 
 # files hash-table stats:
 # Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
@@ -290,13 +290,12 @@ main:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 26 / storage = 246 B / avg = 9 B
-# current buf: size = 8162 B / used = 246 B / count = 26 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 26 / storage = 243 B / avg = 9 B
+# current buf: size = 8162 B / used = 243 B / count = 26 / avg = 9 B
 
 # strcache performance: lookups = 31 / hit rate = 16%
 # hash-table stats:
- 
 # Load=26/8192=0%, Rehash=0, Collisions=1/31=3%
-# Finished Make data base on Mon Jun  6 11:36:58 2022
+# Finished Make data base on Tue Jun  7 09:05:43 2022
 
  
