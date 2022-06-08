@@ -33,14 +33,6 @@ const renderColor = () => {
     console.clear();
     const variants = getVariants();
 
-    const variantsElement = document.querySelector("#variants");
-    if (!variantsElement) return;
-
-    variantsElement.onclick = (e) => {
-        const element = e.target;
-
-    };
-
     /**
      * Limited color dictionary
      * @type { Object<string, string> }
@@ -102,3 +94,15 @@ const renderColor = () => {
 };
 
 renderColor();
+
+(function() {
+    const variantsElements = document.querySelectorAll("#variants");
+
+    variantsElements.forEach(variantElement => {
+        variantElement.addEventListener('click', function () {
+            console.clear();
+        });
+    });
+
+
+}());
