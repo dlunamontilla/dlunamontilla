@@ -8,107 +8,81 @@
     <!-- https://shopify.dev/themes/architecture/locales/storefront-locale-files -->
 
     <section class="product-grid" id="products">
-        {% for collection in collections %}
-            {% for product in collection.products %}
-                {% if product.available %}
-                    <article class="product-grid__item">
-                        <header class="product-grid__item__header" data-name="carousel">
-                            <div class="carousel" data-name="carousel">
-                                <!-- Imágenes del carousel -->
-                                <div class="carousel__images" data-name="images">
-                                    <div class="carousel__images__item">
-                                        {% for image in product.images %}
-                                            <picture>
-                                                <source srcset="{{ image | image_url: width: 300, height: 300 }}">
-                                                <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}" loading="lazy" width="300" height="auto">
-                                            </picture>
-
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="absolute" data-name="next">
-                                        Aquí va un carousel de imágenes o una imagen específica si el usuario seleccionó una variante.
-                                    </div>
-                                </div>
-
-                                <!-- Indicadores de posición de imágenes -->
-                                <div class="carousel__indicators" data-name="indicators"></div>
-
-                                <!-- Contenedor de direcciones -->
-                                <div class="carousel__arrow">
-                                    <div class="carousel__arrow__item carousel__arrow__item--left" data-svg="{{ 'arrow.svg' | asset_url }}"></div>
-                                    <div class="carousel__arrow__item carousel__arrow__item--right" data-svg="{{ 'arrow.svg' | asset_url }}"></div>
-                                </div>
-                            </div>
-
-                            <div class="image">
+        {% for product in collections.all.products %}
+            <article class="product-grid__item">
+                <header class="product-grid__item__header" data-name="carousel">
+                    <div class="carousel" data-name="carousel">
+                        <!-- Imágenes del carousel -->
+                        <div class="carousel__images" data-name="images">
+                            <div class="carousel__images__item">
+                                {% for image in product.images %}
                                 <picture>
                                     <source srcset="{{ image | image_url: width: 300, height: 300 }}">
-                                    <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}" loading="lazy" width="300" height="auto">
+                                    <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}"
+                                        loading="lazy" width="300" height="auto">
                                 </picture>
-                            </div>
-                            <!-- Variantes de productos -->
-                            <div class="variants">
-                                {% for variant in product.variants %}
 
-                                    <p>
-                                        Selected:
-                                        {{ product.media }}
-                                    </p>
                                 {% endfor %}
-
-                                <p>
-                                    data:
-                                    {{ product.first_available_variant.image }}
-                                </p>
-
-                                <p>
-                                    data:
-                                    {{ product.selected_variant.id }}
-                                </p>
                             </div>
 
-                        </header>
+                            <div class="absolute" data-name="next">
+                                Aquí va un carousel de imágenes o una imagen específica si el usuario seleccionó una
+                                variante.
+                            </div>
+                        </div>
 
-                        <section class="product-grid__item__description">
-                            <h2 class="product-grid__item__title">
-                                {{ product.title }}
-                            </h2>
+                        <!-- Indicadores de posición de imágenes -->
+                        <div class="carousel__indicators" data-name="indicators"></div>
 
-                            <p class="product-grid__item__paragraph">{{ product.description }}</p>
-                        </section>
+                        <!-- Contenedor de direcciones -->
+                        <div class="carousel__arrow">
+                            <div class="carousel__arrow__item carousel__arrow__item--left"
+                                data-svg="{{ 'arrow.svg' | asset_url }}"></div>
+                            <div class="carousel__arrow__item carousel__arrow__item--right"
+                                data-svg="{{ 'arrow.svg' | asset_url }}"></div>
+                        </div>
+                    </div>
 
-                        <footer class="product-grid__item__footer">
-                            <form action="/cart/add" class="form" method="post">
-                                <input type="hidden" name="id" value="{{ product.variants.first.id }}"/>
+                    <div class="image">
+                        <picture>
+                            <source srcset="{{ image | image_url: width: 300, height: 300 }}">
+                            <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}"
+                                loading="lazy" width="300" height="auto">
+                        </picture>
+                    </div>
+                    <!-- Variantes de productos -->
+                    <div class="variants">
+                    </div>
 
-                                <div class="form__quantity">
-                                    <label class="product-grid__item__label" for="quantify">
-                                        <input id="quantity" max="20" min="1" name="quantity" type="number" value="1"/>
-                                    </label>
-                                </div>
+                </header>
 
-                                <div class="form__button-container">
-                                    <button class="button button--primary button--width" type="submit">
-                                        Agregar al carrito
-                                    </button>
-                                </div>
-                            </form>
-                        </footer>
-                    </article>
-                {% endif %}
-            {% endfor %}
+                <section class="product-grid__item__description">
+                    <h2 class="product-grid__item__title">
+                        {{ product.title }}
+                    </h2>
+
+                    <p class="product-grid__item__paragraph">{{ product.description }}</p>
+                </section>
+
+                <footer class="product-grid__item__footer">
+                    <form action="/cart/add" class="form" method="post">
+                        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+
+                        <div class="form__quantity">
+                            <label class="product-grid__item__label" for="quantify">
+                                <input id="quantity" max="20" min="1" name="quantity" type="number" value="1" />
+                            </label>
+                        </div>
+
+                        <div class="form__button-container">
+                            <button class="button button--primary button--width" type="submit">
+                                Agregar al carrito
+                            </button>
+                        </div>
+                    </form>
+                </footer>
+
+            </article>
         {% endfor %}
     </section>
-</div>
-
-<hr>
-
-<div class="container">
-    <h2>Algún tipo de producto</h2>
-    {{ collection.all_product_count }}
-
-    - Algo
-
-    {{ collections.first.title }}
 </div>
