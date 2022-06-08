@@ -1,6 +1,7 @@
 {{ "style.css" | asset_url | stylesheet_tag }}
 <script src="{{ 'send-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'carousel.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
 
 
 <div class="container">
@@ -43,15 +44,25 @@
                         </div>
                     </div>
 
+                    <!-- Imagen representativa del producto -->
                     <div class="image">
-                        <picture>
-                            <source srcset="{{ image | image_url: width: 300, height: 300 }}">
-                            <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}"
-                                loading="lazy" width="300" height="auto">
-                        </picture>
+
+                        {% for variant in product.variants %}
+                            <picture>
+                                <source srcset="{{ variant.image.src | image_url: width: 300, height: 300 }}">
+                                <img alt="{{ product.title }}" src="{{ variant.image.src | image_url: width: 400, height: 400 }}"
+                                    loading="lazy" width="300" height="auto">
+                            </picture>
+                        {% endfor %}
                     </div>
+
                     <!-- Variantes de productos -->
-                    <div class="variants">
+                    <div class="variants" id="variants">
+                        {% for variant in product.variants %}
+                            <button class="variants__item" title="{{ variant.title }}" data-variant-id="{{ variant.id }}">
+                                {{ variant.title }}
+                            </button>
+                        {% endfor %}
                     </div>
 
                 </header>

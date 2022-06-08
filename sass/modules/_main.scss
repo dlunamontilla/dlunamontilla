@@ -192,12 +192,34 @@
 
 // Product variants
 .variants {
+  --color: white;
+
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   position: relative;
   padding: 10px;
   background-color: rgba(black, 0.8);
-
+  color: white;
   z-index: 3;
-  &::before {
-    content: "Variante - ";
+
+  --size: 20px;
+
+  &__item {
+    position: relative;
+    border-radius: calc(var(--size) / 2);
+    border: 0;
+
+    width: var(--size);
+    height: var(--size);
+
+    color: transparent;
+    background-color: var(--color);
+    background-image: var(--mixed);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    box-shadow: 0 0 4px 4px rgba(white, 0.2);
+    border: 1px solid var(--color);
   }
 }
