@@ -23,7 +23,6 @@
                                 <source srcset="{{ image | image_url: width: 400, height: 400 }}" type="image/*" />
                                 <img src="{{ image | image_url: width: 400, height: 400 }}" alt="{{ product.title }}" loading="lazy" width="400" height="400">
                             </picture>
-
                             {% break %}
                         {% endfor %}
                     </div>
@@ -31,9 +30,11 @@
                     <!-- Variantes de productos -->
                     <div class="options" id="options">
                         {% for options in product.options_with_values %}
+                           
                             {% for name_option in options.values %}
-                                <div class="options__item">
-                                    Color => {{ name_option }}
+
+                                <div class="options__item options__item--{{ name_option | downcase | replace: ' ', '-' }}">
+                                    
                                 </div>
                             {% endfor %}                            
                         {% endfor %}
@@ -71,24 +72,12 @@
     </section>
 </div>
 
-<h2>settings => {{ section.id }}</h2>
-<p>
-    settings => {{ section.settings.featured_collection.url }}
-</p>
+dlunamontilla
+{% assign colors_list = settings.color_maping | newline_to_br | split: '<br />' %}
 
-<h2>Prueba de las secciones</h2>
-
-global => {{ settings }}
-
-ITERAR
-
-Lista de colores => {{ colors_list }}
-
-ITERAR:
-
-{% for color in settings %}
-    Color seleccionado => {{ color }} | {{ settings[color] }}
-{% endfor %}
-
-Texto de colores:
-{{ settings.color_maping }}
+{% style %}
+{%- for color in colors_list -%}
+    {%- assign css = color | split: ':' -%}
+        .options__item--{{ css[0] | handle }} { --background: {{ css[1] }}; }
+{%- endfor -%}
+{% endstyle %}

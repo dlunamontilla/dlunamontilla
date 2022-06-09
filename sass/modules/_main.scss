@@ -232,3 +232,25 @@
     }
   }
 }
+
+.options {
+  --size: 20px;
+
+  background-color: black;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+
+  &__item {
+    background-color: var(--background);
+    border: 1px solid white;
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: calc(var(--size) / 2);
+  }
+}
+
+.image {
+  position: relative;
+}
