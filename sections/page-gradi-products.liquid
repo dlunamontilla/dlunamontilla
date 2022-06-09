@@ -3,6 +3,9 @@
 <script src="{{ 'carousel.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'variants.js' | asset_url }}" defer="defer"></script>
 
+<!-- Get color list -->
+<!-- {% assign colors_list = settings | newline_to_br | split: '<br />' %} -->
+{% assign colors_list = settings | split: '=>' %}
 
 <div class="container">
     <h1>Nuestros productos</h1>
@@ -20,7 +23,7 @@
                                 <source srcset="{{ image | image_url: width: 400, height: 400 }}" type="image/*" />
                                 <img src="{{ image | image_url: width: 400, height: 400 }}" alt="{{ product.title }}" loading="lazy" width="400" height="400">
                             </picture>
-                            
+
                             {% break %}
                         {% endfor %}
                     </div>
@@ -30,12 +33,11 @@
                         {% for options in product.options_with_values %}
                             {% for name_option in options.values %}
                                 <div class="options__item">
-                                    {{ name_option }}
+                                    Color => {{ name_option }}
                                 </div>
                             {% endfor %}                            
                         {% endfor %}
                     </div>
-
                 </header>
 
                 <section class="product-grid__item__description">
@@ -68,3 +70,22 @@
         {% endfor %}
     </section>
 </div>
+
+<h2>settings => {{ section.id }}</h2>
+<p>
+    settings => {{ section.settings.featured_collection.url }}
+</p>
+
+<h2>Prueba de las secciones</h2>
+
+global => {{ settings }}
+
+ITERAR
+
+Lista de colores => {{ colors_list }}
+
+ITERAR:
+
+{% for color in settings %}
+    Color seleccionado => {{ color }} | {{ settings[color] }}
+{% endfor %}
