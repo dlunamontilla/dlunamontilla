@@ -12,56 +12,27 @@
         {% for product in collections.all.products %}
             <article class="product-grid__item">
                 <header class="product-grid__item__header" data-name="carousel">
-                    <div class="carousel" data-name="carousel">
-                        <!-- Imágenes del carousel -->
-                        <div class="carousel__images" data-name="images">
-                            <div class="carousel__images__item">
-                                {% for image in product.images %}
-                                <picture>
-                                    <source srcset="{{ image | image_url: width: 300, height: 300 }}">
-                                    <img alt="{{ product.title }}" src="{{ image | image_url: width: 400, height: 400 }}"
-                                        loading="lazy" width="300" height="auto">
-                                </picture>
-
-                                {% endfor %}
-                            </div>
-
-                            <div class="absolute" data-name="next">
-                                Aquí va un carousel de imágenes o una imagen específica si el usuario seleccionó una
-                                variante.
-                            </div>
-                        </div>
-
-                        <!-- Indicadores de posición de imágenes -->
-                        <div class="carousel__indicators" data-name="indicators"></div>
-
-                        <!-- Contenedor de direcciones -->
-                        <div class="carousel__arrow">
-                            <div class="carousel__arrow__item carousel__arrow__item--left"
-                                data-svg="{{ 'arrow.svg' | asset_url }}"></div>
-                            <div class="carousel__arrow__item carousel__arrow__item--right"
-                                data-svg="{{ 'arrow.svg' | asset_url }}"></div>
-                        </div>
-                    </div>
 
                     <!-- Imagen representativa del producto -->
                     <div class="image">
-
-                        {% for variant in product.variants %}
+                        {% for image in product.images %}
                             <picture>
-                                <source srcset="{{ variant.image.src | image_url: width: 300, height: 300 }}">
-                                <img alt="{{ product.title }}" src="{{ variant.image.src | image_url: width: 400, height: 400 }}"
-                                    loading="lazy" width="300" height="auto">
+                                <source srcset="{{ image | image_url: width: 400, height: 400 }}" type="image/*" />
+                                <img src="{{ image | image_url: width: 400, height: 400 }}" alt="{{ product.title }}" loading="lazy" width="400" height="400">
                             </picture>
+                            
+                            {% break %}
                         {% endfor %}
                     </div>
 
                     <!-- Variantes de productos -->
-                    <div class="variants" id="variants">
-                        {% for variant in product.variants %}
-                            <button class="variants__item" title="{{ variant.title }}" data-variant-id="{{ variant.id }}">
-                                {{ variant.title }}
-                            </button>
+                    <div class="options" id="options">
+                        {% for options in product.options_with_values %}
+                            {% for name_option in options.values %}
+                                <div class="options__item">
+                                    {{ name_option }}
+                                </div>
+                            {% endfor %}                            
                         {% endfor %}
                     </div>
 

@@ -154,11 +154,6 @@
     top: 0;
     bottom: 0;
 
-    &,
-    &__item {
-      // display: flex;
-    }
-
     &__item {
       position: relative;
       align-items: center;
@@ -200,10 +195,10 @@
   position: relative;
   padding: 10px;
   background-color: rgba(black, 0.8);
-  color: white;
+  // color: white;
   z-index: 3;
 
-  --size: 20px;
+  --size: 100px;
 
   &__item {
     position: relative;
@@ -212,8 +207,6 @@
 
     width: var(--size);
     height: var(--size);
-
-    color: transparent;
     background-color: var(--color);
     background-image: var(--mixed);
     background-size: cover;
