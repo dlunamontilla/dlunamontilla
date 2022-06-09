@@ -1,5 +1,7 @@
 # Explicación general del funcionamiento de los temas de Shopify
 
+La siguiente explicación ha sido tomada de la [documentación oficial de Shopify][fuente].
+
 ## Settings
 
 ### Campos del formulario
@@ -128,3 +130,58 @@ La estructura JSON que puede utilizarse es la siguiente:
 
 El valor devuelto por este campo es de tipo `string`.
 
+**Input Text:** es una caja de texto de una sola línea. Un valor de marcador de posición de entrada (`placeholder`) aparecen en los ajustes definidos en `settings_schema.json`.
+
+Su estructura JSON para generarla es la siguiente:
+
+```json
+{
+  "type": "text", // Tipo de control de formulario.
+  "id": "footer_linklist_title", // Atributo identificador.
+  "label": "Heading", // Etiqueta que verá el usuario.
+  "default": "Quick links" // Valor por defecto.
+}
+```
+
+Al ingresar una entrada devolverá una cadea (`string`), de lo contrario, devolverá un objeto de tipo `EmptyDrop`.
+
+**TextArea:** es una caja de texto de múltiples líneas. Para generar esta caja de texto debemos utilizar la siguiente estructura JSON:
+
+```json
+{
+  "type": "textarea", // Tipo de campo.
+  "id": "home_welcome_message", // Atributo identificador.
+  "label": "Welcome message", // Texto que verá el usuario.
+  "default": "Welcome to my shop!" // Valor por defecto.
+}
+```
+
+Esta caja de texto devuelve una cadena (`string`), de lo contrario, devolverá un objeto de tipo `EmptyDrop` en caso de estar vacío.
+
+## Configuraciones de entrada especializadas
+
+Tipos de ajustes especializados:
+
+- **article:** genera un campo de selección de artículos que completa automáticamente con los artículos disponible para la tienda. Puede utilizar eestos campos para capturar una selección de artículos, como el artículo que se mostra en la página de inicio.
+
+La estructura JSON para generarla es la siguiente:
+
+```json
+{
+  "type": "article", 	// Tipo de ajuste.
+  "id": "article", 		// Identificador.
+  "label": "Article"	// Etiqueta que verá el usuario.
+}
+```
+
+El resultado se visualiza en la siguiente imagen:
+
+![](https://shopify.dev/assets/themes/settings/specialized/article.png)
+
+Los datos que devuelven son:
+
+- [Objeto de artículo](https://shopify.dev/api/liquid/objects/article "Leer documentación - En Inglés").
+- **`blank`:** si no se ha seleccionado ningún artículo, bien sea, porque no existe o porque no se seleccionó como tal.
+
+
+[fuente]:https://shopify.dev/themes/architecture/settings/input-settings#article "Fuente de la documentación"
