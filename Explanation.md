@@ -181,7 +181,53 @@ El resultado se visualiza en la siguiente imagen:
 Los datos que devuelven son:
 
 - [Objeto de artículo](https://shopify.dev/api/liquid/objects/article "Leer documentación - En Inglés").
-- **`blank`:** si no se ha seleccionado ningún artículo, bien sea, porque no existe o porque no se seleccionó como tal.
+- **`blank`:** si no se ha seleccionado ningún artículo, bien sea, porque no existe o porque no se seleccionó como tal. Para más información [haga clic en este enlace](https://shopify.dev/themes/architecture/settings#legacy-resource-based-settings).
+
+**blog:** genera un campo de selección de _blogs_ que se completa automáticamente con los **blogs** disponibles para la tienda.
+
+Para crear esta opción de personalización se requiere la siguiente estructura JSON:
+
+```json
+{
+  "type": "blog",
+  "id": "blog",
+  "label": "Blog"
+}
+```
+
+Esto es lo que verá el usuario:
+
+![](https://shopify.dev/assets/themes/settings/specialized/blog.png "Vista previa")
+
+Los datos que devuelven son:
+
+- Un [objeto de blog](https://shopify.dev/api/liquid/objects/blog).
+
+- **`blank`:** en el caso de que no se haya seleccionado nada o no exista algún blog.
+
+**collection:** genera un campo de selector de colección que se completa automáticamene con las colecciones disponibles para la tienda. Puede utilizar estos campos para capturar una selección de colección.
+
+Su estructura JSON para generarla es la siguiente:
+
+```json
+{
+  "type": "collection",
+  "id": "collection",
+  "label": "Collection"
+}
+```
+
+Y esto es lo que observará el usuario:
+
+![](https://shopify.dev/assets/themes/settings/specialized/collection.png "Vista previa")
+
+Los datos que devuelve son los siguientes:
+
+- Un [objeto de colección](https://shopify.dev/api/liquid/objects/collection "Leer la documentación en inglés").
+
+- **`blank`:** si no se ha realizado ninguna selección es porque la selección no es visible o no existe.
+
+
 
 
 [fuente]:https://shopify.dev/themes/architecture/settings/input-settings#article "Fuente de la documentación"
