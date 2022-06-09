@@ -20,8 +20,8 @@
                     <div class="image">
                         {% for image in product.images %}
                             <picture>
-                                <source srcset="{{ image | image_url: width: 400, height: 400 }}" type="image/*" />
-                                <img src="{{ image | image_url: width: 400, height: 400 }}" alt="{{ product.title }}" loading="lazy" width="400" height="400">
+                                <source srcset="{{ image | image_url: width: 400, height: 400 }}" type="image/*" id="source-variant-{{ product.title | replace: ' ', '-' }}" />
+                                <img src="{{ image | image_url: width: 400, height: 400 }}" alt="{{ product.title }}" id="image-variant-{{ product.title | replace: ' ', '-' }}" loading="lazy" width="400" height="400">
                             </picture>
                             {% break %}
                         {% endfor %}
@@ -29,14 +29,17 @@
 
                     <!-- Variantes de productos -->
                     <div class="options" id="options">
-                        {% for options in product.options_with_values %}
-                           
-                            {% for name_option in options.values %}
-
-                                <button class="options__item options__item--{{ name_option | downcase | replace: ' ', '-' }}" title="{{ name_option }}">
+                        {% for variant in product.variants %}
+                                <button 
+                                    class="options__item options__item--{{ variant.title | downcase | replace: ' ', '-' }}"
+                                    title="{{ variant.title }}"
+                                    data-id="{{ variant.id }}"
+                                    data-product-title="{{ product.title | replace: ' ', '-' }}"
+                                    data-image="{{ variant.image | image_url: width: 400, height: 400 }}"
+                                    data-title="{{ variant.title }}"
+                                    data-price="{{ variant.price | money }}">
                                     &nbsp;
                                 </button>
-                            {% endfor %}                            
                         {% endfor %}
                     </div>
                 </header>
@@ -46,12 +49,28 @@
                         {{ product.title }}
                     </h2>
 
+                    <!-- Price and name of the product variant -->
+                    <div class="product-grid__item__description__price">
+                        <p>
+                            Precio:
+                            <span id="variant-price-{{ product.title | replace: ' ', '-' }}">
+                                {{ product.price | money }}
+                            </span>
+                        </p>
+
+                        <p>
+                            <span id="variant-name-{{ product.title | replace: ' ', '-' }}">
+                                
+                            </span>
+                        </p>
+                    </div>
+
                     <p class="product-grid__item__paragraph">{{ product.description }}</p>
                 </section>
 
                 <footer class="product-grid__item__footer">
                     <form action="/cart/add" class="form" method="post">
-                        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                        <input type="hidden" name="id" id="id-{{ product.title | replace: ' ', '-' }}" value="{{ product.id }}" />
 
                         <div class="form__quantity">
                             <label class="product-grid__item__label" for="quantify">
@@ -72,7 +91,6 @@
     </section>
 </div>
 
-dlunamontilla
 {% assign colors_list = settings.color_maping | newline_to_br | split: '<br />' %}
 
 {% style %}

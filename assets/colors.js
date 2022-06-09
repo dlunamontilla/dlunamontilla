@@ -1,108 +1,81 @@
 /**
- * Get the product variants.
- * 
- * @returns { Array<Object<string, string|number|HTMLElement>> }
+ * Insolate code.
  */
-const getVariants = () => {
-    /**
-     * @type { NodeListOf<HTMLElement> }
-     */
-    const variants = document.querySelectorAll('[data-variant-id]');
+(function () {
+    const options = document.querySelectorAll("#options");
 
-    console.log(variants);
+    /**
+     * Set value to hidden field of the form to identify the product.
+     * 
+     * @param { string } identifier Product identifier by title.
+     * @param { string } productId Value of the identifier of the product.
+     * @returns { void }
+     */
+    const setValueId = (identifier, productId) => {
+        /**
+         * @type { HTMLInputElement } Get product identifier
+         */
+        const idField = document.querySelector(`#id-${identifier}`);
+        if (idField) idField.value = productId;
+    }
+
+    /**
+     * Set image of the product.
+     * 
+     * @param { string } identifier Product identifier title.
+     * @param { string } image The path of the image.
+     * @returns { void } 
+     */
+    const setImage = (identifier, image) => {
+        /**
+         * @type { NodeListOf<HTMLElement> } Images of the variants
+         */
+        const pictures = document.querySelectorAll(`#source-variant-${identifier}, #image-variant-${identifier}`);
+
+        for (const picture of pictures) {
+            if (picture.tagName === "SOURCE") {
+                picture.srcset = image;
+                continue;
+            }
+
+            picture.src = image;
+        }
+    }
 
     /**
      * 
-     * @param {HTMLElement} variant HTML Element
-     * @returns { Array<Object<string, number|string|HTMLElement>> }
+     * @param { string } identifier Product identifier 
+     * @param { Object<string, string|number> } param Product data
      */
-    function mapVariant(variant) {
-        const { variantId } = variant.dataset;
+    const setDescription = (identifier, param) => {
+        const { price, title } = param;
 
-        return {
-            id: Number(variantId),
-            variant,
-            text: variant.textContent.toLocaleLowerCase().trim().trim()
+        const variantPrice = document.querySelector(`#variant-price-${identifier}`);
+        const variantName = document.querySelector(`#variant-name-${identifier}`);
+
+        if (variantPrice && variantName) {
+            variantPrice.textContent = price;
+            variantName.textContent = title;
         }
-    };
+    }
 
-    return [].map.call(variants, mapVariant);
-};
+    options.forEach(option => {
+        option.addEventListener("click", function (e) {
+            /**
+             * @type { HTMLElement }
+             */
+            const element = e.target;
+            if (element.tagName !== "BUTTON") return;
+            const { id, image, title, productTitle, price } = element.dataset;
 
-const renderColor = () => {
-    console.clear();
-    const variants = getVariants();
+            setValueId(productTitle, id);
+            setImage(productTitle, image);
 
-    /**
-     * Limited color dictionary
-     * @type { Object<string, string> }
-     */
-    const colors = {
-        blanco: "white",
-        negro: "black",
-        naranja: "orange",
-        anaranjado: "orange",
-        rosado: "pink",
-        "verde oliva": "#737a2f",
-        rojo: "#ff0000",
-        roja: "#f00000",
-        amarillo: "#f0c000",
-        amarilla: "#f0c000",
-        dorado: "#d3a01f",
-        dorada: "#d3a01f",
-        marron: "brown",
-        beige: 'beige',
-        plateado: 'silver',
-        plateada: 'silver',
-        azul: '#0030ff',
-        gris: 'gray',
-
-        /**
-         * Return mixed colors
-         * @param { string } textColor 
-         * @returns { string }
-         */
-        default: function (textColor) {
-            const _colors = textColor.split(/\s+con+\s+/i);
-            console.log({ colors, textColor });
-
-            const mixed = [];
-            for (const color of _colors) {
-                mixed[color] ??= this[color] ?? "white";
-                mixed.push(this[color] ?? "white");
-            }
-
-            console.log({ mixed });
-            return mixed;
-        }
-    };
-
-    // Render color
-    variants.forEach(variantElement => {
-        let { id, variant, text } = variantElement;
-
-        if (text in colors) {
-            const color = colors[text];
-            variant.setAttribute('style', `--color: ${color}`);
-        }
-
-        if (!(text in colors)) {
-            const mixed = colors.default(text);
-            variant.setAttribute('style', `--mixed: linear-gradient(${mixed.join(' 20%, ')})`);
-        }
-    });
-};
-
-renderColor();
-
-(function() {
-    const variantsElements = document.querySelectorAll("#variants");
-
-    variantsElements.forEach(variantElement => {
-        variantElement.addEventListener('click', function () {
-            console.clear();
+            setDescription(productTitle, {
+                price,
+                title
+            });
         });
     });
-
 
 }());
