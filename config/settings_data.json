@@ -4,7 +4,7 @@
     "colors_accent_1": "#0076b7",
     "gradient_accent_1": "",
     "colors_accent_2": "#334fb4",
-    "color_maping": "blanco: white\nverde oliva:#983049\nazul: #0080d4\nverde: #008000\nbeige: beige\nnaranja: #f06600",
+    "color_maping": "blanco: white\nverde oliva:#983049\nazul: #0080d4\nverde: #008000\nbeige: beige\nnaranja: #f06600;\nflorypepiado: #33a8ff",
     "gradient_accent_2": "",
     "colors_text": "#121212",
     "colors_outline_button_labels": "#121212",
