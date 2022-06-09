@@ -103,6 +103,11 @@
           flex-grow: 1;
         }
       }
+
+      &__description {
+        padding: 20px;
+        flex-grow: 1;
+      }
     }
   }
 }

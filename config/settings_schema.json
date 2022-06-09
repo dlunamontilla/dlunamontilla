@@ -29,6 +29,13 @@
         "info": "t:settings_schema.colors.settings.colors_accent_1.info"
       },
       {
+        "type": "color",
+        "id": "colors_accent_1PRUEBA",
+        "default": "#0080d4",
+        "label": "t:settings_schema.colors.settings.colors_accent_1.label",
+        "info": "Este es un color de prueba"
+      },
+      {
         "id": "gradient_accent_1",
         "type": "color_background",
         "label": "t:settings_schema.colors.settings.gradient_accent_1.label"
