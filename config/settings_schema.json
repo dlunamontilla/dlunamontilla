@@ -49,8 +49,7 @@
       {
         "type": "textarea",
         "id": "color_maping",
-        "label": "Welcome message",
-        "default": "Color maping"
+        "label": "Color maping"
       },
       {
         "id": "gradient_accent_2",
