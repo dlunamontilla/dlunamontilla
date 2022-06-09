@@ -47,12 +47,11 @@
         "label": "t:settings_schema.colors.settings.colors_accent_2.label"
       },
       {
-        "type": "color",
-        "id": "dlunamontilla",
-        "default": "#334FB4",
-        "label": "Es un color de prueba"
+        "type": "textarea",
+        "id": "color_maping",
+        "label": "Welcome message",
+        "default": "Color maping"
       },
-
       {
         "id": "gradient_accent_2",
         "type": "color_background",
