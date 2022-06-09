@@ -33,9 +33,7 @@
                            
                             {% for name_option in options.values %}
 
-                                <div class="options__item options__item--{{ name_option | downcase | replace: ' ', '-' }}">
-                                    
-                                </div>
+                                <div class="options__item options__item--{{ name_option | downcase | replace: ' ', '-' }}" title="{{ name_option }}"></div>
                             {% endfor %}                            
                         {% endfor %}
                     </div>
