@@ -66,6 +66,7 @@
              */
             const element = e.target;
             if (element.tagName !== "BUTTON") return;
+            
             const { id, image, title, productTitle, price } = element.dataset;
 
             setValueId(productTitle, id);
