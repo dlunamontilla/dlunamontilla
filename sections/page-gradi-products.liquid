@@ -1,8 +1,8 @@
 {{ "style.css" | asset_url | stylesheet_tag }}
+<script src="{{ 'minicart.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'send-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'carousel.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'colors.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'minicart.js' | asset_url }}" defer="defer"></script>
 
 <!-- Get color list -->
 <!-- {% assign colors_list = settings | newline_to_br | split: '<br />' %} -->
@@ -92,8 +92,6 @@
     </section>
 </div>
 
-<div id="app-modal">&nbsp; adsfadsf</div>
-
 {% assign colors_list = settings.color_maping | newline_to_br | split: '<br />' %}
 
 {% style %}
@@ -105,4 +103,6 @@
 
 <!-- https://www.bonsoirs.com/ -->
 
-{% render 'minicart' %}
+<!-- {% render 'minicart' %} -->
+
+<div id="app-modal">&nbsp;</div>

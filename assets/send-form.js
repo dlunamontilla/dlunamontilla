@@ -50,9 +50,13 @@ const handler = async function (e) {
     const containerModal = document.querySelector("#app-modal");
 
     console.log({ info: containerModal });
-    // if (!containerModal) return;
+    if (!containerModal) return;
 
-    // alert(containerModal.textContent);
+    const response = await fetch("?sections=minicart");
+    const dataSection = await response.json();
+    const { minicart } = dataSection;
+    containerModal.insertAdjacentHTML('beforeend', minicart);
+    initcart();
   }
 };
 
