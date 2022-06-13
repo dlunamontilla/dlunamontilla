@@ -46,6 +46,13 @@ const handler = async function (e) {
   if (isForm(form)) {
     const data = await post(form);
     console.log({ data });
+
+    const containerModal = document.querySelector("#app-modal");
+
+    console.log({ info: containerModal });
+    // if (!containerModal) return;
+
+    // alert(containerModal.textContent);
   }
 };
 

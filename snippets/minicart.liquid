@@ -1,5 +1,5 @@
 <div class="modal-container">
-  <div class="modal">
+  <div class="modal fadeIn">
     <header class="modal__header">
       <nav class="modal__header__navigation">
         <div class="modal__header__navigation__item">
@@ -22,7 +22,7 @@
 
       <aside class="modal__container__sidebar">
         {% for cart in cart.items %}
-        <form action="cart/add" class="minicart-form" method="post">
+        <form action="cart/update" class="minicart-form" method="post">
           <!-- Campo oculto del formulario -->
           <input
             type="hidden"
@@ -81,7 +81,7 @@
                 {{ cart.price | times: cart.quantity | money }}
               </div>
 
-              <button data-action="delete" type="button">&times;</button>
+              <button data-action="delete">&times;</button>
             </div>
           </div>
         </form>

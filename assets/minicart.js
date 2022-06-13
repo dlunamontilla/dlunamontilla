@@ -43,7 +43,7 @@
   minicartForm.forEach((form) => {
     let num = 0;
 
-    form.addEventListener("click", function (e) {
+    form.addEventListener("click", async function (e) {
       const element = e.target;
       const { action, price } = element.dataset;
 
@@ -63,9 +63,17 @@
         });
       }
 
+      const data = getData(this);
+
       if (action === "delete") {
+        data.quantity = 0;
+        await setActions(data);
         this.remove();
       }
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
     });
   });
 
@@ -116,10 +124,52 @@
 
   const buttonMinicartClose = document.querySelector("#button-minicart-close");
 
-  if (buttonMinicartClose) buttonMinicartClose.addEventListener('click', function(e) {
+  if (buttonMinicartClose)
+    buttonMinicartClose.addEventListener("click", function (e) {
       /**
        * Close the modal window
        */
       this.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
-  })
+    });
+
+  /**
+   *
+   * @param { Object<string, string|number> } data Data of the form
+   * @returns { Promise<void> }
+   */
+  async function setActions(data) {
+    const { id, quantity } = data;
+
+    const formData = new FormData();
+
+    formData.set('id', id);
+    formData.set('quantity', quantity);
+
+    const response = await fetch(
+      window.Shopify.routes.root + "cart/change.js",
+
+      {
+        method: "POST",
+        credentials: "same-origin",
+        body: formData
+      }
+    );
+
+    if (!response.ok) throw new Error("No se pudo procesar la petición");
+  }
+
+  /**
+   * Return a object from the form.
+   *
+   * @param { HTMLFormElement } form HTML Form
+   * @returns { Object<string, string|number> }
+   */
+  const getData = (form) => {
+    if (!isForm) return {};
+
+    const formData = new FormData(form);
+    const entries = formData.entries();
+    const data = Object.fromEntries(entries);
+    return data;
+  };
 })();
