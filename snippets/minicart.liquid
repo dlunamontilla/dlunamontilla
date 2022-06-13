@@ -3,7 +3,7 @@
     <header class="modal__header">
       <nav class="modal__header__navigation">
         <div class="modal__header__navigation__item">
-          Confirme sus productos
+          <h3>Confirme sus productos</h3>
         </div>
 
         <div class="modal__header__navigation__item">
@@ -13,14 +13,14 @@
     </header>
 
     <section class="modal__container">
-      <div class="modal__container__left">
+      <!-- <div class="modal__container__left">
         <h2>Contenido principal</h2>
         <p>Posiblemente acá hayan fotos</p>
-      </div>
+      </div> -->
 
       <aside class="modal__container__sidebar">
         {% for cart in cart.items %}
-        <form action="cart/add" method="post" class="minicart-form">
+        <form action="cart/add" class="minicart-form" method="post">
           <!-- Campo oculto del formulario -->
           <input
             type="hidden"
@@ -30,10 +30,10 @@
           />
 
           <h2>{{ cart.title }}</h2>
-          
+
           <div class="minicart-form__quantity">
             <div class="minicart-form__quantity__inner">
-              <button type="button" class="button button--quantity">-</button>
+              <button class="button button--quantity" type="button">-</button>
 
               <input
                 type="number"
@@ -42,9 +42,10 @@
                 maxlength="2"
                 min="1"
                 max="20"
+                value="{{ cart.quantity }}"
               />
 
-              <button type="button" class="button button--quantity">+</button>
+              <button class="button button--quantity" type="button">+</button>
             </div>
 
             <div class="minicart-form__quantity__inner">

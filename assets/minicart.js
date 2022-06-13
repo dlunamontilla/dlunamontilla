@@ -15,4 +15,33 @@
       }
     });
   });
+
+  /**
+   * Return a number as string.
+   *
+   * @param { number } number
+   * @returns { string }
+   */
+  function numberFormat(number) {
+    return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(number);
+  }
+
+  const minicartForm = document.querySelectorAll(".minicart-form");
+
+  minicartForm.forEach(form => {
+      form.addEventListener("click", function(e) {
+          const element = e.target;
+
+      })
+  });
+
+  /**
+   * 
+   * @param { number } id Product identifier
+   * @param { number } value Value to insert at product.
+   * @returns { void }
+   */
+  function setValue(id, value) {
+
+  }
 })();

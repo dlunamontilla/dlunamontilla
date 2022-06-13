@@ -129,6 +129,10 @@
   padding: 20px;
   background-color: rgba($color-base, 0.05);
 
+  &:not(:first-of-type) {
+    margin-top: 20px;
+  }
+
   &__quantity {
     background-color: white;
     padding: 10px;
