@@ -10,7 +10,7 @@
 
   border-radius: 5px;
   overflow: hidden;
-  
+
   &-container {
     position: fixed;
     margin: auto;
@@ -47,6 +47,21 @@
     flex-grow: 1;
     background-color: white;
     padding: 20px;
+
+    display: flex;
+
+    &__left {
+        flex-grow: 1;
+    }
+
+    &__sidebar {
+        padding: 10px;
+
+        @media screen and (min-width: 900px) {
+            min-width: 450px;
+            border-left: 1px solid darken(white, 10);
+        }
+    }
   }
 
   &__footer {

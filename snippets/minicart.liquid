@@ -1,24 +1,61 @@
 <div class="modal-container">
+  <div class="modal">
+    <header class="modal__header">
+      <nav class="modal__header__navigation">
+        <div class="modal__header__navigation__item">
+          Confirme sus productos
+        </div>
 
-    <div class="modal">
-        <header class="modal__header">
-            <nav class="modal__header__navigation">
-                <div class="modal__header__navigation__item">
-                    Confirme sus productos
-                </div>
+        <div class="modal__header__navigation__item">
+          <button class="button button--close">&times;</button>
+        </div>
+      </nav>
+    </header>
 
-                <div class="modal__header__navigation__item">
-                    <button class="button button--close">&times;</button>
-                </div>
-            </nav>
-        </header>
+    <section class="modal__container">
+      <div class="modal__container__left">
+        <h2>Contenido principal</h2>
+        <p>Posiblemente acá hayan fotos</p>
+      </div>
 
-        <section class="modal__container">
-            <h2>Contenido principal</h2>
-        </section>
+      <aside class="modal__container__sidebar">
+        {% for cart in cart.items %}
+        <form action="cart/add" method="post" class="minicart-form">
+          <!-- Campo oculto del formulario -->
+          <input
+            type="hidden"
+            name="id"
+            data-id="{{ cart.id }}"
+            value="{{ cart.id }}"
+          />
 
-        <footer class="modal__footer">
-            pie de página
-        </footer>
-    </div>
+          <h2>{{ cart.title }}</h2>
+          
+          <div class="minicart-form__quantity">
+            <div class="minicart-form__quantity__inner">
+              <button type="button" class="button button--quantity">-</button>
+
+              <input
+                type="number"
+                name="quantity"
+                id="quantity-{{ cart.id }}"
+                maxlength="2"
+                min="1"
+                max="20"
+              />
+
+              <button type="button" class="button button--quantity">+</button>
+            </div>
+
+            <div class="minicart-form__quantity__inner">
+              {{ cart.price | times: cart.quantity | money }}
+            </div>
+          </div>
+        </form>
+        {% endfor %}
+      </aside>
+    </section>
+
+    <footer class="modal__footer">pie de página</footer>
+  </div>
 </div>
