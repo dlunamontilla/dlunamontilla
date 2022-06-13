@@ -21,6 +21,45 @@
   &--width {
     width: 100%;
   }
+
+  &--close {
+    box-shadow: none;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+    position: relative;
+
+    --size: 40px;
+
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 50%;
+
+    background-color: transparent;
+    font-size: 3rem;
+    box-shadow: none;
+    outline: 1px solid transparent;
+    padding: 0;
+
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &:hover {
+      background-color: rgba(red, 0.8);
+      color: white;
+    }
+
+    &:active {
+      background-color: rgba(red, 0.6);
+      color: white;
+      transition: none;
+    }
+  }
 }
 
 .form {

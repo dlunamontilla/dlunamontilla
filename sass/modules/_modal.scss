@@ -1,0 +1,47 @@
+.modal {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: darken(white, 80);
+
+  width: $width;
+  max-width: $max-width;
+  
+  &-container {
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(black, 0.6);
+
+    overflow: auto;
+    z-index: 9999;
+  }
+
+  & > * {
+    width: 100%;
+  }
+
+  &__header {
+    background-color: black;
+    min-height: 40px;
+
+    &__navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+  }
+
+  &__container {
+    flex-grow: 1;
+  }
+
+  &__footer {
+    background-color: black;
+  }
+
+  border: 1px solid blue;
+}
