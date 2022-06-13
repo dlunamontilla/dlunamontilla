@@ -2146,6 +2146,8 @@ input[type='checkbox'] {
   bottom: 0.8rem;
   left: 2.2rem;
   line-height: calc(1 + 0.1 / var(--font-body-scale));
+  color: white;
+  font-weight: bold;
 }
 
 /* section-announcement-bar */

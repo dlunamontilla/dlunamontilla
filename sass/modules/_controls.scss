@@ -35,6 +35,7 @@
     max-height: auto;
     max-width: auto;
     position: relative;
+    color: white;
 
     --size: 40px;
 
@@ -69,11 +70,60 @@
   &--quantity {
     --size: 40px;
 
+    border: 0;
     width: var(--size);
     height: var(--size);
 
+    --border: #{1px solid rgba($color-base, 0.3)};
+
     font: {
       size: 3rem;
+    }
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &:first-of-type {
+      border-left: var(--border);
+      border-top: var(--border);
+      border-bottom: var(--border);
+
+      &:hover {
+        background-color: rgba(red, 0.2);
+        color: red;
+        --border: #{1px solid rgba(red, 0.3)};
+
+      }
+
+      &:active {
+        transition: none;
+        background-color: rgba(red, 0.25);
+      }
+    }
+
+    &:last-of-type {
+      border-right: var(--border);
+      border-top: var(--border);
+      border-bottom: var(--border);
+
+      &:hover {
+        background-color: rgba($color-base, 0.1);
+        border-bottom: var(--border);
+        border-right: var(--border);
+        border-top: var(--border);
+      }
+
+      &:active {
+        transition: none;
+        background-color: rgba($color-base, 0.15);
+      }
+    }
+
+    &:active {
+      background-color: darken($color-base, 5);
+      transition: none;
     }
   }
 }
@@ -111,7 +161,6 @@
         }
       }
     }
-
   }
 
   &__button-container {
@@ -136,19 +185,50 @@
   &__quantity {
     background-color: white;
     padding: 10px;
+    border-radius: 5px;
 
     justify-content: space-between;
     border: 1px solid $color-base;
 
-    &, &__inner {
+    &,
+    &__inner {
       display: flex;
       align-items: center;
     }
 
     &__inner {
       padding: 5px;
-    }
 
+      [data-name="price"] {
+        margin-right: 10px;
+      }
+
+      [data-action="delete"] {
+        background-color: transparent;
+        border: 0;
+        font-size: 3rem;
+        border-radius: 50%;
+        transition: 300ms ease;
+        line-height: 0;
+        text-align: center;
+        padding: 5px;
+
+        --size-button: 40px;
+
+        width: var(--size-button);
+        height: var(--size-button);
+
+        &:hover {
+          background-color: rgba(red, 0.8);
+          color: white;
+        }
+
+        &:active {
+          background-color: rgba(red, 0.6);
+          transition: none;
+        }
+      }
+    }
 
     input {
       height: var(--control-size);
@@ -160,6 +240,8 @@
       transition: 300ms ease;
       font: inherit;
 
+      box-shadow: none;
+      border: 1px solid rgba($color-base, 0.3);
       &:focus {
         outline: 1px solid transparent;
         border: 1px solid rgba(#0080d4, 0.8);

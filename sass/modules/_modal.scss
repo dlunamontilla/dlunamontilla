@@ -9,6 +9,10 @@
   border-radius: 5px;
   overflow: hidden;
 
+  box-shadow: 0 0 10px rgba(darken($color-base, 10), 0.6);
+
+  
+
   &-container {
     position: fixed;
     margin: auto;
@@ -18,7 +22,6 @@
     bottom: 0;
     background-color: rgba(black, 0.6);
     padding: 20px;
-
 
     display: flex;
     overflow: auto;
@@ -31,23 +34,24 @@
 
   &__header {
     background-color: black;
-    min-height: 40px;
+    min-height: 60px;
+    background-image: linear-gradient(to bottom, rgba(white, 0.2), transparent);
 
     &__navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
 
-        color: white;
+      color: white;
 
-        h3 {
-            margin: 0;
-            padding: 5px 10px;
-            font: {
-                size: 2rem;
-            }
+      h3 {
+        margin: 0;
+        padding: 5px 10px;
+        font: {
+          size: 2rem;
         }
+      }
     }
   }
 
@@ -55,24 +59,36 @@
     flex-grow: 1;
     background-color: white;
     padding: 20px;
-
+    overflow: auto;
     display: flex;
 
+    background-image: linear-gradient(
+      to top,
+      rgba($color-base, 0.05),
+      transparent
+    );
+
     &__left {
-        flex-grow: 1;
+      flex-grow: 1;
     }
 
     &__sidebar {
-        padding: 10px;
+      padding: 10px;
 
-        @media screen and (min-width: 900px) {
-            min-width: 450px;
-            border-left: 1px solid darken(white, 10);
+      &:empty {
+        &::before {
+          content: "Si está vacío se debe ver esto";
         }
+      }
+      @media screen and (min-width: 900px) {
+        min-width: 580px;
+        border-left: 1px solid darken(white, 10);
+      }
     }
   }
 
   &__footer {
-    background-color: black;
+    background-color: $color-base;
+    background-image: linear-gradient(to bototm, rgba(black, 0.4), transparent);
   }
 }
