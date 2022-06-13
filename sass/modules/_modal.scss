@@ -11,8 +11,6 @@
 
   box-shadow: 0 0 10px rgba(darken($color-base, 10), 0.6);
 
-  
-
   &-container {
     position: fixed;
     margin: auto;
@@ -35,7 +33,7 @@
   &__header {
     background-color: black;
     min-height: 60px;
-    background-image: linear-gradient(to bottom, rgba(white, 0.2), transparent);
+    background-image: linear-gradient(to bottom, rgba(white, 0.1), transparent);
 
     &__navigation {
       display: flex;
@@ -83,6 +81,32 @@
       @media screen and (min-width: 900px) {
         min-width: 580px;
         border-left: 1px solid darken(white, 10);
+      }
+
+      &__image {
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        background-color: darken($color-base, 10);
+        color: white;
+        margin-bottom: 10px;
+        border: 1px solid $color-base;
+
+        background-image: linear-gradient(
+          to bottom,
+          rgba(white, 0.1),
+          transparent
+        );
+
+        overflow: hidden;
+        border-radius: 5px;
+
+        img {
+          margin-right: 10px;
+          width: 70px;
+          height: auto;
+          display: block;
+        }
       }
     }
   }
