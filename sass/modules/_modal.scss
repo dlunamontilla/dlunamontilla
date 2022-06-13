@@ -3,9 +3,13 @@
   flex-direction: column;
   background-color: white;
   color: darken(white, 80);
+  margin: 0 auto;
 
   width: $width;
   max-width: $max-width;
+
+  border-radius: 5px;
+  overflow: hidden;
   
   &-container {
     position: fixed;
@@ -15,7 +19,10 @@
     top: 0;
     bottom: 0;
     background-color: rgba(black, 0.6);
+    padding: 20px;
 
+
+    display: flex;
     overflow: auto;
     z-index: 9999;
   }
@@ -32,16 +39,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 10px;
     }
   }
 
   &__container {
     flex-grow: 1;
+    background-color: white;
+    padding: 20px;
   }
 
   &__footer {
     background-color: black;
   }
-
-  border: 1px solid blue;
 }
