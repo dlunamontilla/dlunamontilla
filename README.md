@@ -5,7 +5,7 @@ Pronto colocaré información actualiza sobre mí en esta parte. Mientras tanto,
 - [Mi sitio Web][1].
 - [Mi biblioteca][2].
 
-[1]: https://aprendiento.netlify.app/ "Mi sitio Web"
+[1]: https://aprendiendo.netlify.app/ "Mi sitio Web"
 [2]: https://github.com/dlunamontilla/DLTools "Mi biblioteca | Aún en desarrollo"
 
 
