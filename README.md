@@ -22,5 +22,3 @@ Si desea crear una aplicación con el Framework PHP DLUnire (muy similar a Larav
 ```bash
 composer create-project dlunamontilla/dlunire my-app
 ```
-
-Aún no se puede utilizar en producción, porque se está desarrollando, pero ya se está [documentando aquí][2].
